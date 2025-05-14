@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="flex flex-col gap-2.5">
+        <div className="join">
+          <button className="join-item btn btn-xs">1</button>
+          <button className="join-item btn btn-xs btn-active">2</button>
+          <button className="join-item btn btn-xs">3</button>
+          <button className="join-item btn btn-xs">4</button>
+        </div>
+        <div className="join">
+          <button className="join-item btn btn-sm">1</button>
+          <button className="join-item btn btn-sm btn-active">2</button>
+          <button className="join-item btn btn-sm">3</button>
+          <button className="join-item btn btn-sm">4</button>
+        </div>
+        <div className="join">
+          <button className="join-item btn btn-md">1</button>
+          <button className="join-item btn btn-md btn-active">2</button>
+          <button className="join-item btn btn-md">3</button>
+          <button className="join-item btn btn-md">4</button>
+        </div>
+        <div className="join">
+          <button className="join-item btn btn-lg">1</button>
+          <button className="join-item btn btn-lg btn-active">2</button>
+          <button className="join-item btn btn-lg">3</button>
+          <button className="join-item btn btn-lg">4</button>
+        </div>
+        <div className="join">
+          <button className="join-item btn btn-xl">1</button>
+          <button className="join-item btn btn-xl btn-active">2</button>
+          <button className="join-item btn btn-xl">3</button>
+          <button className="join-item btn btn-xl">4</button>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
