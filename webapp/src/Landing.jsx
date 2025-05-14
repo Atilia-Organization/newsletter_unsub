@@ -9,30 +9,28 @@ function Landing() {
 
   return (
     <>
-      <div className="w-screen min-h-screen bg-gradient-to-t from-blue-primary to-blue-secondary flex flex-col">
+      <div className=" w-screen min-h-screen bg-gradient-to-t from-blue-secondary to-blue-primary flex flex-col">
         {/* Navbar */}
-        <div className="navbar px-6 py-4">
-          <div className="flex-1">
-            <img className="w-20" src={Atilia_white} alt="Logo" />
-          </div>
+        <div className="navbar px-6 py-4 md:justify-start justify-center">
+          <img className="md:w-20 w-24" src={Atilia_white} alt="Logo" />
         </div>
 
         {/* Hero */}
         <div className="flex-1 flex items-center justify-center">
           <div className="hero">
             <div className="hero-content text-left">
-              <div className="max-w-xl">
-                <h1 className="text-5xl font-bold ">
+              <div className="max-w-xl p-5 md:p-3">
+                <p className="text-3xl md:text-5xl font-bold ">
                   <span className="text-purple-primary">Growth</span> Isn’t an
                   option,{" "}
                   <span className="text-purple-primary">It’s the mission.</span>
-                </h1>
-                <p className="py-6 text-xl font-semibold">
+                </p>
+                <p className="py-6 text:lg md:font-semibold md:text-xl">
                   Get exclusive early access to updates. Don’t miss your chance
                   to be part of something transformative.
                 </p>
                 <fieldset className="fieldset">
-                  <div className="join gap-4">
+                  <div className="join gap-4 flex flex-col md:flex-row">
                     <div className="w-full">
                       <label className="input validator w-full bg-white join-item">
                         <svg
@@ -82,13 +80,11 @@ function Landing() {
         </div>
 
         {/* Footer */}
-        <div className="footer px-6 py-4">
-          <div className="flex-1">
-            <p className="text-white text-md">
-              © Atilia 2025
-            </p>
+        <div className="footer footer-center px-6 py-4">
+          <div className="flex">
+            <p className="text-white text-md">© Atilia 2025</p>
           </div>
-      </div>
+        </div>
       </div>
     </>
   );
