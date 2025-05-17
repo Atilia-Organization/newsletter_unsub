@@ -3,9 +3,13 @@
 
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+}
+
+@theme {
+  --color-blue-primary: #112898; 
+  --color-blue-secondary: #060D32;
+  --color-purple-primary: #AA66EE;
 }
 
 .logo {
