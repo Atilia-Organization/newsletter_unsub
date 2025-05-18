@@ -29,8 +29,28 @@ function Landing() {
     <>
       <div className=" w-screen min-h-screen bg-gradient-to-t from-blue-secondary to-blue-primary flex flex-col">
         {/* Navbar */}
-        <div className="navbar px-6 py-4 md:justify-start justify-center">
-          <img className="md:w-20 w-24" src={Atilia_white} alt="Logo" />
+        <div className={`navbar px-6 py-4 md:justify-start ${step === 1 ? "justify-center": "justify-start"}`}>
+          {step === 1 ? (
+              <img className="md:w-20 w-24" src={Atilia_white} alt="Logo" />
+          ) : (
+            <>
+            <a onClick={() => setStep(1)} className="cursor-pointer">
+              <svg
+                class="h-12 w-12 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M7 16l-4-4m0 0l4-4m-4 4h18"
+                />
+              </svg>
+              </a>
+            </>
+          )}
         </div>
 
         {/* Hero */}
@@ -133,27 +153,6 @@ function Landing() {
                           placeholder="Enter your Name"
                           className="input rounded-lg w-full text-gray-700 bg-white join-item"
                         />
-                        <button
-                          type="button"
-                          onClick={() => setStep(1)}
-                          className="text-center flex items-center transition "
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth={2}
-                            stroke="currentColor"
-                            className="w-5 h-5 text-purple-primary"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M15 19l-7-7 7-7"
-                            />
-                          </svg>
-                          Back
-                        </button>
                       </HeroInput>
                     </div>
                   </fieldset>
