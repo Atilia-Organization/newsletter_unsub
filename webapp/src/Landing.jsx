@@ -3,15 +3,25 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Atilia_white from "./assets/imgs/Atilia_white.png";
+import HeroInput from "../components/HeroInput";
 
 function Landing() {
   const [step, setStep] = useState(1);
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
 
   const handleEmailSubmit = () => {
     if (email) {
       console.log("Email submitted: ", email);
+      console.log("Name submitted: ", name);
       setStep(2);
+    }
+  };
+
+  const handleNameSubmit = () => {
+    if (name) {
+      console.log("Name submitted: ", name);
+      console.log("Email: ", email);
     }
   };
 
@@ -33,10 +43,10 @@ function Landing() {
                     className={`flex transition delay-150 duration-300 ease-in-out`}
                     style={{
                       transform: `translateX(${step === 1 ? "0%" : "-50%"})`,
-                      width: "200%", 
+                      width: "200%",
                     }}
                   >
-                    <div className="">
+                    <div>
                       <p className="text-3xl md:text-5xl font-bold ">
                         <span className="text-purple-primary">Growth</span>{" "}
                         Isn’t an option,{" "}
@@ -50,7 +60,7 @@ function Landing() {
                       </p>
                     </div>
 
-                    <div className="">
+                    <div>
                       <p className="text-3xl md:text-5xl font-bold ">
                         Let’s get to know you
                         <br />—
@@ -69,16 +79,21 @@ function Landing() {
                   onSubmit={(e) => {
                     e.preventDefault();
                     if (!e.currentTarget.checkValidity()) return;
-                    handleEmailSubmit();
+                    step === 1 ? handleEmailSubmit() : handleNameSubmit();
                   }}
                 >
-                  <fieldset className="fieldset">
-                    <div className="join gap-4 flex flex-col md:flex-row">
-                      <div className="w-full">
-
+                  <fieldset className="fieldset overflow-hidden">
+                    <div
+                      className={`flex transition delay-150 duration-300 ease-in-out`}
+                      style={{
+                        transform: `translateX(${step === 1 ? "0%" : "-50%"})`,
+                        width: "200%",
+                      }}
+                    >
+                      <HeroInput subscribeText="Subscribe" optional={true}>
                         <label className="input validator w-full bg-white join-item">
                           <svg
-                            className="h-[1em] opacity-50 text-gray-500"
+                            className="h-[1em] opacity-50 text-gray-700"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                           >
@@ -100,7 +115,7 @@ function Landing() {
                             </g>
                           </svg>
                           <input
-                            className="text-gray-500"
+                            className="text-gray-700"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             type="email"
@@ -108,20 +123,39 @@ function Landing() {
                             required
                           />
                         </label>
-                        <div className="validator-hint hidden">
-                          Enter valid email address
-                        </div>
-                      </div>
-                      <button
-                        type="submit"
-                        className="!bg-purple-primary text-white px-4 py-2 rounded-md font-semibold join-item"
-                      >
-                        Subscribe
-                      </button>
+                      </HeroInput>
+
+                      <HeroInput subscribeText="Enter">
+                        <input
+                          type="text"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder="Enter your Name"
+                          className="input rounded-lg w-full text-gray-700 bg-white join-item"
+                        />
+                        <button
+                          type="button"
+                          onClick={() => setStep(1)}
+                          className="text-center flex items-center transition "
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={2}
+                            stroke="currentColor"
+                            className="w-5 h-5 text-purple-primary"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M15 19l-7-7 7-7"
+                            />
+                          </svg>
+                          Back
+                        </button>
+                      </HeroInput>
                     </div>
-                    <p className="label text-sm">
-                      We respect your privacy. No spam, ever
-                    </p>
                   </fieldset>
                 </form>
               </div>
