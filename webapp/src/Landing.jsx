@@ -1,6 +1,4 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import Atilia_white from "./assets/imgs/Atilia_white.png";
 import HeroInput from "../components/HeroInput";
@@ -15,6 +13,14 @@ function Landing() {
       console.log("Email submitted: ", email);
       console.log("Name submitted: ", name);
       setStep(2);
+
+      fetch(import.meta.env.VITE_ADD_EMAIL_TO_SHEETS, {
+        method: "POST",
+        headers: {"Content-Type": "application/x-www-form-urlencoded"},
+        body: (`Name=${name}&Email=${email}`)
+      }).then(res=>res.text()).then(data=>{
+        alert(data)
+      }).catch(error=>console.log(error))
     }
   };
 
