@@ -13,6 +13,13 @@ function Landing() {
       console.log("Email submitted: ", email);
       console.log("Name submitted: ", name);
       setStep(2);
+    }
+  };
+
+  const handleNameSubmit = () => {
+    if (name) {
+      console.log("Name submitted: ", name);
+      console.log("Email: ", email);
 
       fetch(import.meta.env.VITE_ADD_EMAIL_TO_SHEETS, {
         method: "POST",
@@ -21,13 +28,6 @@ function Landing() {
       }).then(res=>res.text()).then(data=>{
         alert(data)
       }).catch(error=>console.log(error))
-    }
-  };
-
-  const handleNameSubmit = () => {
-    if (name) {
-      console.log("Name submitted: ", name);
-      console.log("Email: ", email);
     }
   };
 
